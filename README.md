@@ -1,6 +1,6 @@
 # q_advisor_ai
 
-![gif](https://github.com/ny000815/q_advisor_ai/images/q_ad.gif)
+![gif](./images/q_ad.gif)
 
 ## Overview
 
@@ -8,7 +8,7 @@ q_advisor is a question-answering system based on the content of PDF documents t
 
 ## Architecture
 
-![alt](https://github.com/ny000815/q_advisor_ai/images/architecture.png)
+![alt](./images/architecture.png)
 
 ## Requirement
 
