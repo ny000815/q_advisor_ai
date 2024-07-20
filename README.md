@@ -1,6 +1,6 @@
-# ft_mini_ls
+# q_advisor_ai
 
-![gif](https://github.com/ny000815/q_advisor_ai/image/q_ad.gif)
+![gif](https://github.com/ny000815/q_advisor_ai/images/q_ad.gif)
 
 ## Overview
 
@@ -8,7 +8,7 @@ q_advisor is a question-answering system based on the content of PDF documents t
 
 ## Architecture
 
-![alt](https://github.com/ny000815/q_advisor_ai/image/architecture.png)
+![alt](https://github.com/ny000815/q_advisor_ai/images/architecture.png)
 
 ## Requirement
 
@@ -31,7 +31,8 @@ python app.py
 ## Other Service
 
 GPTs version is available here.
-[Q advisor fro kdb+](https://chatgpt.com/g/g-xsRgQV9lF-q-advisor-for-kdb)
+
+[Q advisor for kdb+](https://chatgpt.com/g/g-xsRgQV9lF-q-advisor-for-kdb)
 
 ## Licence
 
