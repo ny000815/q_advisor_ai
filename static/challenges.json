@@ -1,0 +1,228 @@
+{
+	"topics": [
+	  {
+		"topic": "1. Basic Data Types and List Operations",
+		"description": "Learn about basic data types in q (integer, float, string, symbol) and how to create and manipulate lists.",
+		"example": {
+		  "code": [
+			"intList: 1 2 3 4 5",
+			"floatList: 1.1 2.2 3.3",
+			"stringList: \"a\" \"b\" \"c\"",
+			"symbolList: `apple `banana `cherry",
+			"sumList: sum intList"
+		  ],
+		  "explanation": "This code creates lists of different data types and calculates the sum of the integer list."
+		},
+		"exercise": {
+		  "prompt": "Create a list of integers from 6 to 10 and calculate the sum.",
+		  "solution": [
+			"intList: 6 7 8 9 10",
+			"sumList: sum intList"
+		  ]
+		}
+	  },
+	  {
+		"topic": "2. Creating Tables and Basic Queries",
+		"description": "Learn how to create tables and perform basic queries in q.",
+		"example": {
+		  "code": [
+			"trade:([] sym:`AAPL`GOOG`MSFT; price:100 200 150; size:10 20 30)",
+			"select from trade where price > 150"
+		  ],
+		  "explanation": "This code creates a table with columns for symbol, price, and size, and then selects rows where the price is greater than 150."
+		},
+		"exercise": {
+		  "prompt": "Create a table named 'products' with columns for id, name, and price. Insert three products and select the product with a price greater than 100.",
+		  "solution": [
+			"products:([] id:1 2 3; name:`apple`banana`cherry; price:50 120 80)",
+			"select from products where price > 100"
+		  ]
+		}
+	  },
+	  {
+		"topic": "3. Defining and Using Functions",
+		"description": "Learn how to define and use functions in q.",
+		"example": {
+		  "code": [
+			"add:{x+y}",
+			"result: add[5; 10]"
+		  ],
+		  "explanation": "This code defines a function named 'add' that takes two arguments and returns their sum. It then calls the function with arguments 5 and 10."
+		},
+		"exercise": {
+		  "prompt": "Define a function named 'multiply' that takes two arguments and returns their product. Use the function to multiply 6 and 7, and store the result in a variable named 'result'.",
+		  "solution": [
+			"multiply:{a*b}",
+			"result: multiply[6; 7]"
+		  ]
+		}
+	  },
+	  {
+		"topic": "4. Updating, Deleting, and Joining Tables",
+		"description": "Learn how to update, delete, and join tables in q.",
+		"example": {
+		  "code": [
+			"products:([] id:1 2 3; name:`apple`banana`cherry; price:100 200 150)",
+			"update price:250 from products where price=200",
+			"delete from products where price=150",
+			"inventory:([] id:1 2 3; stock:50 30 20)",
+			"joined: products lj `id xkey inventory"
+		  ],
+		  "explanation": "This code updates the price of a product, deletes a product with a specific price, and performs a left join between the 'products' and 'inventory' tables."
+		},
+		"exercise": {
+		  "prompt": "Create a table named 'orders' with columns for id, item, and quantity. Update the quantity of an item with id 2 to 15, delete an item with id 3, and join this table with another table named 'delivery' which has columns for id and deliveryDate.",
+		  "solution": [
+			"orders:([] id:1 2 3; item:`apple`banana`cherry; quantity:5 10 15)",
+			"update quantity:15 from orders where id=2",
+			"delete from orders where id=3",
+			"delivery:([] id:1 2; deliveryDate:2024.01.01 2024.01.02)",
+			"joined: orders lj `id xkey delivery"
+		  ]
+		}
+	  },
+	  {
+		"topic": "5. Advanced Query Operations",
+		"description": "Learn how to perform advanced queries in q, including aggregate functions and complex conditions.",
+		"example": {
+		  "code": [
+			"trade:([] sym:`AAPL`GOOG`MSFT; price:100 200 150; size:10 20 30)",
+			"select sym, avg price by sym from trade where size > 10"
+		  ],
+		  "explanation": "This code performs a query that groups by symbol and calculates the average price for symbols where the size is greater than 10."
+		},
+		"exercise": {
+		  "prompt": "Create a table named 'sales' with columns for id, item, and amount. Group by item and calculate the total amount for each item where the amount is greater than 50.",
+		  "solution": [
+			"sales:([] id:1 2 3; item:`apple`banana`cherry; amount:40 60 80)",
+			"select item, sum amount by item from sales where amount > 50"
+		  ]
+		}
+	  },
+	  {
+		"topic": "6. Advanced Functions and Scripting",
+		"description": "Learn about advanced functions and scripting in q, including nested functions, conditionals, and loops.",
+		"example": {
+		  "code": [
+			"nestedAdd:{[a;b] add:{x+y}; add[a;b]}",
+			"result: nestedAdd[3; 4]",
+			"conditionalCheck:{[x] if[x > 0; :\"positive\"; :\"non-positive\"]}",
+			"result: conditionalCheck[5]"
+		  ],
+		  "explanation": "This code defines a nested function 'nestedAdd' and a conditional function 'conditionalCheck' that returns 'positive' if the input is greater than 0."
+		},
+		"exercise": {
+		  "prompt": "Define a function named 'factorial' that calculates the factorial of a given number using a loop. Calculate the factorial of 5.",
+		  "solution": [
+			"factorial:{[n] f:1; while[n>1; f:f*n; n:n-1]; f}",
+			"result: factorial[5]"
+		  ]
+		}
+	  },
+	  {
+		"topic": "7. Data Manipulation and Transformation",
+		"description": "Learn how to manipulate and transform data in q, including type casting, filtering, and sorting.",
+		"example": {
+		  "code": [
+			"data: 1 2 3 4 5",
+			"stringData: string data",
+			"filteredData: data where data mod 2 = 0",
+			"sortedData: asc data"
+		  ],
+		  "explanation": "This code casts a list of integers to strings, filters the list to keep only even numbers, and sorts the list in ascending order."
+		},
+		"exercise": {
+		  "prompt": "Create a list of floats from 1.1 to 5.5. Convert the list to integers, filter the list to keep only odd numbers, and sort the list in descending order.",
+		  "solution": [
+			"floatList: 1.1 2.2 3.3 4.4 5.5",
+			"intList: floor floatList",
+			"filteredData: intList where intList mod 2 = 1",
+			"sortedData: desc filteredData"
+		  ]
+		}
+	  },
+	  {
+		"topic": "8. Performance Optimization",
+		"description": "Learn about performance optimization techniques in q, including efficient use of in-memory databases, performance tuning, and batch processing.",
+		"example": {
+		  "code": [
+			"data: til 1000000",
+			"optimizedQuery: select from data where data mod 2 = 0"
+		  ],
+		  "explanation": "This code demonstrates an optimized query that selects even numbers from a large dataset."
+		},
+		"exercise": {
+		  "prompt": "Create a large dataset of integers from 1 to 1000000. Perform an optimized query to select numbers divisible by 3.",
+		  "solution": [
+			"largeData: til 1000000",
+			"optimizedQuery: select from largeData where largeData mod 3 = 0"
+		  ]
+		}
+	  },
+	  {
+		"topic": "9. Time and Date Operations",
+		"description": "Learn how to handle time and date data in q, including formatting and manipulation of time-series data.",
+		"example": {
+		  "code": [
+			"currentTime: .z.p",
+			"currentDate: .z.d",
+			"formattedTime: string .z.p"
+		  ],
+		  "explanation": "This code retrieves the current time and date, and formats the current time as a string."
+		},
+		"exercise": {
+		  "prompt": "Get the current date and add 7 days to it. Format the new date as a string.",
+		  "solution": [
+			"currentDate: .z.d",
+			"newDate: currentDate + 7",
+			"formattedDate: string newDate"
+		  ]
+		}
+	  },
+	  {
+		"topic": "10. Data Persistence and Loading",
+		"description": "Learn how to save and load data in q, including database backup and restore.",
+		"example": {
+		  "code": [
+			"data: ([] id: 1 2 3; value: 100 200 300)",
+			"save `:dataFile",
+			"loadedData: get `:dataFile"
+		  ],
+		  "explanation": "This code saves a table to a file and then loads the data back from the file."
+		},
+		"exercise": {
+		  "prompt": "Create a table named 'users' with columns for userId and userName. Save this table to a file and then load the data back from the file.",
+		  "solution": [
+			"users: ([] userId: 1 2 3; userName: `John `Jane `Doe)",
+			"save `:usersFile",
+			"loadedUsers: get `:usersFile"
+		  ]
+		}
+	  },
+	  {
+		"topic": "11. Advanced Join Operations",
+		"description": "Learn about advanced join operations in q, including right join, full outer join, and non-equijoin.",
+		"example": {
+		  "code": [
+			"table1: ([] id: 1 2 3; value1: 10 20 30)",
+			"table2: ([] id: 3 4 5; value2: 100 200 300)",
+			"rightJoin: table1 rj `id xkey table2",
+			"fullOuterJoin: table1 fj `id xkey table2",
+			"nonEquiJoin: aj[`id = `id; table1; table2]"
+		  ],
+		  "explanation": "This code demonstrates right join, full outer join, and non-equijoin operations in q."
+		},
+		"exercise": {
+		  "prompt": "Create two tables named 'employees' and 'departments'. Perform a right join, a full outer join, and a non-equijoin between these tables.",
+		  "solution": [
+			"employees: ([] empId: 1 2 3; empName: `Alice `Bob `Charlie)",
+			"departments: ([] deptId: 2 3 4; deptName: `HR `IT `Finance)",
+			"rightJoin: employees rj `empId xkey departments",
+			"fullOuterJoin: employees fj `empId xkey departments",
+			"nonEquiJoin: aj[`empId = `deptId; employees; departments]"
+		  ]
+		}
+	  }
+	]
+  }
+  
