@@ -36,4 +36,4 @@ GPTs version is available here.
 
 ## Licence
 
-[MIT](https://github.com/ny000815/q_advisor_ai/LICENSE)
+[MIT](.LICENSE)
