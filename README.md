@@ -21,7 +21,7 @@ q_advisor is a question-answering system based on the content of PDF documents t
 ```
 git clone ...
 cd q_advisor_ai
-python3 -m venv venv
+python -m venv venv
 source venv/bin/activate
 pip install Flask anthropic faiss-cpu joblib numpy scikit-learn markdown2
 export ANTHROPIC_API_KEY='put_your_key_here'
