@@ -4,7 +4,7 @@
 
 ## Overview
 
-q_advisor is a question-answering system based on the content of PDF documents to help study kdb+ and q language. It uses Claude API to generate answers to user queries using relevant information extracted from PDFs.
+q_advisor is a question-answering system to help study kdb+ and q language. It uses Claude API to generate answers to user queries using relevant information extracted from PDFs.
 
 ## Architecture
 
