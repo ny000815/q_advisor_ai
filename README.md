@@ -25,7 +25,7 @@ python -m venv venv
 source venv/bin/activate
 pip install Flask anthropic faiss-cpu joblib numpy scikit-learn markdown2
 export ANTHROPIC_API_KEY='put_your_key_here'
-python app.py
+python3 app.py
 ```
 
 ## Other Service
